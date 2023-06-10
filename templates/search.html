@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" , href="static/css/styles.css" />
+    <title>Noodle Search</title>
+
+<body>
+    <div class="container">
+        <form method="POST" action="/search" class="flex-center-y">
+            <p><a href="/">Return To HomePage </a></p>
+            <p align="left">Doodle</p>
+            <div class="form-fields flex-center">
+                <input type="text" name="Query" value={{input}} />
+                <button type="submit">Search</button>
+            </div>
+        </form>
+        <div class="result flex-center-y">
+            <p>query = {{input}}</p>
+            <p>UnRanked Result</p>
+            {% if uresult %}
+            <p>
+                {% for i in uresult %}
+                <a href=/static/Abstracts/{{i}}.txt>{{i}}</a>
+                {% endfor %}
+                {% else %}
+            <p>No Results</p>
+            {% endif %}
+        </div>
+        <div class="result flex-center-y">
+            <p>Ranked Result</p>
+            {% if rresult %}
+            <p>
+                {% for i in rresult %}
+                <a href=/static/Abstracts/{{i}}.txt>{{i}}</a>
+                {% endfor %}
+                {% else %}
+            <p>No Results</p>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</head>
